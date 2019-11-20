@@ -1,6 +1,6 @@
 //
 //  InfoView.swift
-//  MapAndScrollViewTest
+//  MapDemo
 //
 //  Created by Guntis on 05/06/2019.
 //  Copyright © 2019 . All rights reserved.
