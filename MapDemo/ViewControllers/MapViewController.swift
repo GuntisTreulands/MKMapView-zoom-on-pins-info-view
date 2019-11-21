@@ -105,7 +105,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIScrollViewDelega
 			calculatedMaxPinWidth = max(mapPinAccessory.frame.width, calculatedMaxPinWidth)
 			calculatedMaxPinHeight = max(mapPinAccessory.frame.height, calculatedMaxPinHeight)
 
-			annotationView.layer.anchorPoint = CGPoint.init(x: 0.5, y: 1)
+			annotationView.layer.anchorPoint = CGPoint(x: 0.5, y: 1)
 			annotationView.addSubview(mapPinAccessory)
 			annotationView.frame = mapPinAccessory.frame
 		}
@@ -116,7 +116,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIScrollViewDelega
 	// MARK: Functions
 
 	func repositionScrollView() {
-		scrollView.contentInset = UIEdgeInsets.init(top: scrollView.frame.height-min(maximumVisibleInfoViewHeight, infoView.frame.height) - self.view.safeAreaInsets.bottom, left: 0, bottom: 0, right: 0)
+		scrollView.contentInset = UIEdgeInsets(top: scrollView.frame.height-min(maximumVisibleInfoViewHeight, infoView.frame.height) - self.view.safeAreaInsets.bottom, left: 0, bottom: 0, right: 0)
 	}
 
 	// Helper method to get a region from given points
@@ -177,7 +177,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIScrollViewDelega
 		// Some magic, to calculate proper scroll indicator top inset, so that it would be at 0 position at all times, until full page is revealed.
 		let ratio = min(1, frameHeight/contentHeight)
 		let value = max(0, min(scrollView.contentInset.top, scrollView.contentInset.top+scrollView.contentOffset.y))
-		scrollView.scrollIndicatorInsets = UIEdgeInsets.init(top:max(0, -scrollView.contentOffset.y)-value*ratio, left: 0, bottom: 0, right: 0)
+		scrollView.scrollIndicatorInsets = UIEdgeInsets(top:max(0, -scrollView.contentOffset.y)-value*ratio, left: 0, bottom: 0, right: 0)
 
 		if scrollView.contentOffset.y > 0 {
 			scrollView.isPagingEnabled = false
