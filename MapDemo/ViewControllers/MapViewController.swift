@@ -170,20 +170,16 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIScrollViewDelega
 
 	func scrollViewDidScroll(_ scrollView: UIScrollView) {
 
-		let frameHeight = scrollView.frame.height-self.view.safeAreaInsets.bottom-max(0, -scrollView.contentOffset.y)
+		let frameHeight = scrollView.frame.height - self.view.safeAreaInsets.bottom - max(0, -scrollView.contentOffset.y)
 
-		let contentHeight = scrollView.contentSize.height+self.view.safeAreaInsets.bottom+max(0, -scrollView.contentOffset.y)
+		let contentHeight = scrollView.contentSize.height + self.view.safeAreaInsets.bottom + max(0, -scrollView.contentOffset.y)
 
 		// Some magic, to calculate proper scroll indicator top inset, so that it would be at 0 position at all times, until full page is revealed.
-		let ratio = min(1, frameHeight/contentHeight)
-		let value = max(0, min(scrollView.contentInset.top, scrollView.contentInset.top+scrollView.contentOffset.y))
-		scrollView.scrollIndicatorInsets = UIEdgeInsets(top:max(0, -scrollView.contentOffset.y)-value*ratio, left: 0, bottom: 0, right: 0)
+		let ratio = min(1, frameHeight / contentHeight)
+		let value = max(0, min(scrollView.contentInset.top, scrollView.contentInset.top + scrollView.contentOffset.y))
+		scrollView.scrollIndicatorInsets = UIEdgeInsets(top:max(0, -scrollView.contentOffset.y) - value * ratio, left: 0, bottom: 0, right: 0)
 
-		if scrollView.contentOffset.y > 0 {
-			scrollView.isPagingEnabled = false
-		} else {
-			scrollView.isPagingEnabled = true
-		}
+		scrollView.isPagingEnabled = scrollView.contentOffset.y <= 0
 
 		recenterMapPins()
 	}
