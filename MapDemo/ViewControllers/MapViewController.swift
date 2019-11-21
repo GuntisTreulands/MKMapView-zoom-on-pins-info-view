@@ -52,7 +52,7 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIScrollViewDelega
 	// MARK: Set up
 
 	func setUpInfoView() {
-		infoView = InfoView.init(frame: CGRect.init(x: 0, y: 0, width: scrollView.frame.width, height: 100))
+		infoView = InfoView.init()
 		scrollView.addSubview(infoView)
 
 		infoView.topAnchor.constraint(equalTo: scrollView.topAnchor).isActive = true
@@ -64,7 +64,6 @@ class MapViewController: UIViewController, MKMapViewDelegate, UIScrollViewDelega
 		infoView.titleLabel.text =  "Info text comes here\n\nInfo text comes here\n\nInfo text comes here\n\nMore info text comes here\n\nMore info text comes here\n\nMore info text comes here\n\nMore info text comes here\n\nMore info text comes here\n\nMore info text comes here\n\nMore info text comes here\n\nMore info text comes here\n\nMore info text comes here\n\nMore info text comes here\n\nEven more info here!\n\nEven more info here!\n\nEven more info here!\n\nBut no more information after this.\n"
 		infoView.layoutIfNeeded()
 
-		scrollView.alwaysBounceVertical = true
 		scrollView.delegate = self
 
 		scrollView.isPagingEnabled = true

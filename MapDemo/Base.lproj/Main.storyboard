@@ -72,7 +72,7 @@
                             <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="6cm-gx-c3c">
                                 <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                             </mapView>
-                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="B1y-F4-o9R" customClass="PassThroughScrollView" customModule="MapDemo" customModuleProvider="target">
+                            <scrollView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B1y-F4-o9R" customClass="PassThroughScrollView" customModule="MapDemo" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="150" width="414" height="746"/>
                             </scrollView>
                         </subviews>
